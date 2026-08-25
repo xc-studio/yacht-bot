@@ -1,0 +1,71 @@
+const STAT = {
+    inputEnable: false,
+    userInputPromise: null,
+    mode: null,
+    modeInternal: null,
+    statistics: {
+        win: 0,
+        lose: 0,
+        total: 0,
+        max: 0,
+        min: 0,
+    },
+};
+
+const META = {
+    version: "v1.0.0",
+    build: "2026-08-14",
+    author: "X+C Studio",
+    hpUrl: "https://xc-studio.github.io/",
+    jsRequirement: "ES2022+",
+    browserRequirements: {
+        chrome: "92+",
+        edge: "92+",
+        firefox: "92+",
+        safari: "15.4+",
+    },
+};
+
+const INIT_SETTINGS = {
+    language: "en",
+    guideEnable: true,
+    ticker: 600,
+};
+
+const ALLOWED_VALUES = {
+    language: ["en", "ja"],
+    guideEnable: [true, false],
+    ticker: "number",
+};
+
+const LOCKED_SETTINGS = [];
+
+let SETTINGS = deepcopy(INIT_SETTINGS);
+
+function deepcopy(obj) {
+    return structuredClone(obj);
+}
+
+function inherit(parent, child, deleteList = []) {
+    for (const [key, val] of Object.entries(parent)) {
+        if (typeof val === "object" && val !== null) {
+            child[key] = deepcopy(val);
+        } else {
+            child[key] = val;
+        }
+    }
+    for (const key of deleteList) {
+        delete child[key];
+    }
+    return child;
+}
+
+function normalize(str) {
+    if (/^"([^"]*)"$/.test(str)) return str.match(/^"([^"]*)"$/)[1];
+    if (!Number.isNaN(Number(str))) return Number(str);
+    if (str === "true") return true;
+    if (str === "false") return false;
+    if (str === "null") return null;
+    if (str === "undefined") return undefined;
+    return str;
+}

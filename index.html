@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>ヨットBot</title>
+        <link rel="stylesheet" href="./src/css/style.css" />
+    </head>
+    <body>
+        <div id="container">
+            <div id="console-main">
+                <div id="output-display"></div>
+                <div id="input-box" data-enable="false">
+                    <span class="prompt">$> </span><span id="user-input"></span><span class="cursor">█</span>
+                </div>
+            </div>
+            <div id="status-display">
+                <div id="status-header">STATUS DISPLAY</div>
+                <hr />
+                <div class="header2">TURN</div>
+                <div id="turn-display"></div>
+                <div id="rolls-display"></div>
+                <div id="dice-display"></div>
+                <div class="header2">SCORE & CATEGORY</div>
+                <div id="score-display"></div>
+                <div id="upper-sum-display"></div>
+                <table>
+                    <caption>
+                        CATEGORY TABLE
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">NAME</th>
+                            <th scope="col">POINT</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <script src="./src/js/solver.js"></script>
+        <script src="./src/js/utils.js"></script>
+        <script src="./src/js/ui.js"></script>
+        <script src="./src/dialogue/common.js"></script>
+        <script src="./src/dialogue/en.js"></script>
+        <script src="./src/dialogue/ja.js"></script>
+        <script src="./src/js/game.js"></script>
+        <script src="./src/js/main.js"></script>
+    </body>
+</html>

@@ -14,7 +14,7 @@ const STAT = {
 
 const META = {
     version: "v1.0.0",
-    build: "2026-08-14",
+    build: "2026-08-27",
     author: "X+C Studio",
     hpUrl: "https://xc-studio.github.io/",
     jsRequirement: "ES2022+",
